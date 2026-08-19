@@ -9,46 +9,31 @@ st.set_page_config(page_title="TEMPEST", page_icon="⚡", layout="wide")
 st.markdown(
     """
     <style>
-    /* Enable horizontal swipe-scrolling for Streamlit columns on mobile */
-    [data-testid="stHorizontalBlock"] {
-        display: flex !important;
-        overflow-x: auto !important;
-        flex-wrap: nowrap !important;
-        gap: 1rem !important;
-        padding-bottom: 0.5rem !important;
-        -webkit-overflow-scrolling: touch !important;
-        scroll-snap-type: x mandatory !important;
+    .wheels-scroll-row {
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        width: 100%;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
     }
-    [data-testid="stHorizontalBlock"] > div {
-        flex: 0 0 160px !important;
-        scroll-snap-align: start !important;
-        min-width: 160px !important;
+    .wheels-scroll-row::-webkit-scrollbar {
+        height: 6px;
+    }
+    .wheels-scroll-row::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+    }
+    .wheel-card {
+        flex: 0 0 260px;
+        scroll-snap-align: start;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 258, 0.08);
+        border-radius: 12px;
+        padding: 1rem;
     }
     </style>
-    """,
-    unsafe_allow_html=True,
-)
-
-st.markdown(
-    """
-    <div class="macro-row">
-        <div class="macro-card">
-            <h4>Calories</h4>
-            <p>2,000 / 2,500</p>
-        </div>
-        <div class="macro-card">
-            <h4>Protein</h4>
-            <p>150g / 180g</p>
-        </div>
-        <div class="macro-card">
-            <h4>Carbs</h4>
-            <p>200g / 250g</p>
-        </div>
-        <div class="macro-card">
-            <h4>Fat</h4>
-            <p>60g / 80g</p>
-        </div>
-    </div>
     """,
     unsafe_allow_html=True,
 )
