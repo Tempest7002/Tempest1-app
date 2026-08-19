@@ -24,17 +24,16 @@ st.markdown(
 st.markdown(
     """
     <style>
-    .horizontal-scroll-container {
-        display: flex;
+    /* Force horizontal scrolling on the macro columns container */
+    [data-testid="stHorizontalBlock"] {
         overflow-x: auto;
+        flex-wrap: nowrap;
         gap: 1rem;
-        padding-bottom: 1rem;
-        width: 100%;
-        scroll-snap-type: x mandatory;
+        padding-bottom: 0.5rem;
     }
-    .horizontal-scroll-container > div {
-        flex: 0 0 auto;
-        scroll-snap-align: start;
+    [data-testid="stHorizontalBlock"] > div {
+        flex: 0 0 auto !important;
+        min-width: 130px;
     }
     </style>
     """,
