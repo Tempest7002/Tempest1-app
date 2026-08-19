@@ -21,24 +21,29 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.markdown(
-    """
-    <style>
-    /* Force horizontal scrolling on the macro columns container */
-    [data-testid="stHorizontalBlock"] {
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        gap: 1rem;
-        padding-bottom: 0.5rem;
-    }
-    [data-testid="stHorizontalBlock"] > div {
-        flex: 0 0 auto !important;
-        min-width: 130px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+# Create a container for your macro wheels
+macro_container = st.container()
+
+# Add the custom class to it via markdown or container styling,
+# or wrap it using a container block:
+with macro_container:
+  st.markdown(
+      '<div class="macro-scroll-container">', unsafe_allow_html=True
+  )
+
+  # Your macro columns go right here
+  col1, col2, col3 = st.columns(3)
+  with col1:
+    # Calorie wheel code
+    pass
+  with col2:
+    # Protein wheel code
+    pass
+  with col3:
+    # Fat wheel code
+    pass
+
+  st.markdown("</div>", unsafe_allow_html=True)
 
 # 1. DATABASE SETUP
 def init_db():
