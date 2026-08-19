@@ -458,7 +458,7 @@ dashboard_html = f"""
 </div>
 """
 
-st.components.v1.html(dashboard_html, height=550, scrolling=False)
+st.components.v1.html(dashboard_html, height=620, scrolling=False)
 
 # 5. INPUT FORMS
 st.divider()
