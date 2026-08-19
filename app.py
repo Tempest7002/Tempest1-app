@@ -31,30 +31,6 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.markdown(
-    """
-    <div class="macro-row">
-        <div class="macro-card">
-            <h4>Calories</h4>
-            <p>2,000 / 2,500</p>
-        </div>
-        <div class="macro-card">
-            <h4>Protein</h4>
-            <p>150g / 180g</p>
-        </div>
-        <div class="macro-card">
-            <h4>Carbs</h4>
-            <p>200g / 250g</p>
-        </div>
-        <div class="macro-card">
-            <h4>Fat</h4>
-            <p>60g / 80g</p>
-        </div>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
-
 # 1. DATABASE SETUP
 def init_db():
   conn = sqlite3.connect("fitness.db")
@@ -423,10 +399,10 @@ dashboard_html = f"""
 
     <!-- MACRO RINGS -->
     <div style="background: #121215; border: 1px solid #27272a; border-radius: 16px; padding: 24px; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: center; margin-bottom: 20px;">
+        <div style="display: flex; overflow-x: auto; gap: 20px; text-align: center; margin-bottom: 20px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: thin;">
             
             <!-- CALORIES RING -->
-            <div style="display: flex; flex-direction: column; align-items: center;">
+            <div style="display: flex; flex-direction: column; align-items: center; flex: 0 0 140px; scroll-snap-align: start;">
                 <div style="position: relative; width: 130px; height: 130px;">
                     <svg width="130" height="130" viewBox="0 0 100 100">
                         <circle cx="50" cy="50" r="45" fill="none" stroke="#27272a" stroke-width="8" />
@@ -444,7 +420,7 @@ dashboard_html = f"""
             </div>
 
             <!-- PROTEIN RING -->
-            <div style="display: flex; flex-direction: column; align-items: center;">
+            <div style="display: flex; flex-direction: column; align-items: center; flex: 0 0 140px; scroll-snap-align: start;">
                 <div style="position: relative; width: 130px; height: 130px;">
                     <svg width="130" height="130" viewBox="0 0 100 100">
                         <circle cx="50" cy="50" r="45" fill="none" stroke="#27272a" stroke-width="8" />
@@ -463,7 +439,7 @@ dashboard_html = f"""
 
             <!-- FAT RING -->
             <div style="display: flex; flex-direction: column; align-items: center;">
-                <div style="position: relative; width: 130px; height: 130px;">
+                <div style="display: flex; flex-direction: column; align-items: center; flex: 0 0 140px; scroll-snap-align: start;">
                     <svg width="130" height="130" viewBox="0 0 100 100">
                         <circle cx="50" cy="50" r="45" fill="none" stroke="#27272a" stroke-width="8" />
                         <circle cx="50" cy="50" r="45" fill="none" stroke="#f97316" stroke-width="8" 
