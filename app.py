@@ -439,6 +439,7 @@ dashboard_html = f"""
 
             <!-- FAT RING -->
             <div style="display: flex; flex-direction: column; align-items: center; flex: 0 0 140px; scroll-snap-align: start;">
+                <div style="position: relative; width: 130px; height: 130px;">
                     <svg width="130" height="130" viewBox="0 0 100 100">
                         <circle cx="50" cy="50" r="45" fill="none" stroke="#27272a" stroke-width="8" />
                         <circle cx="50" cy="50" r="45" fill="none" stroke="#f97316" stroke-width="8" 
