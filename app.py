@@ -5,6 +5,21 @@ import streamlit as st
 # Page configuration
 st.set_page_config(page_title="TEMPEST", page_icon="⚡", layout="wide")
 
+st.markdown(
+    """
+    <style>
+    /* Make columns wrap or scroll smoothly on mobile screens */
+    [data-testid="stHorizontalBlock"] {
+        flex-wrap: wrap;
+    }
+    [data-testid="column"] {
+        min-width: 140px;
+        flex: 1;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 # 1. DATABASE SETUP
 def init_db():
