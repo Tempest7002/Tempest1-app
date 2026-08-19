@@ -57,6 +57,14 @@ def init_db():
   conn.close()
 
 
+def reset_todays_food():
+  conn = sqlite3.connect("fitness.db")
+  c = conn.cursor()
+  c.execute("DELETE FROM food_logs WHERE date = ?", (str(date.today()),))
+  conn.commit()
+  conn.close()
+
+
 # 2. HELPER FUNCTIONS & RANKING SYSTEM
 def get_macro_targets():
     conn = sqlite3.connect("fitness.db")
