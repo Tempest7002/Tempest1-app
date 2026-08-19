@@ -9,20 +9,56 @@ st.set_page_config(page_title="TEMPEST", page_icon="⚡", layout="wide")
 st.markdown(
     """
     <style>
-    /* Force horizontal scrolling on Streamlit metric or macro columns */
-    div[data-testid="stHorizontalBlock"] {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        overflow-x: auto !important;
-        gap: 1rem !important;
-        padding-bottom: 0.5rem !important;
+    .macro-row {
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+        padding: 0.5rem 0 1rem 0;
+        width: 100%;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch; /* Enables smooth momentum scrolling on iOS Safari */
     }
-    div[data-testid="stHorizontalBlock"] > div {
-        flex: 0 0 auto !important;
-        min-width: 130px !important;
+    .macro-row::-webkit-scrollbar {
+        height: 6px; /* Makes the scrollbar visible and touchable on mobile */
+    }
+    .macro-row::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+    }
+    .macro-card {
+        flex: 0 0 140px;
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 1rem;
+        text-align: center;
+        scroll-snap-align: start;
     }
     </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    """
+    <div class="macro-row">
+        <div class="macro-card">
+            <h4>Calories</h4>
+            <p>2,000 / 2,500</p>
+        </div>
+        <div class="macro-card">
+            <h4>Protein</h4>
+            <p>150g / 180g</p>
+        </div>
+        <div class="macro-card">
+            <h4>Carbs</h4>
+            <p>200g / 250g</p>
+        </div>
+        <div class="macro-card">
+            <h4>Fat</h4>
+            <p>60g / 80g</p>
+        </div>
+    </div>
     """,
     unsafe_allow_html=True,
 )
