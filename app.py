@@ -451,9 +451,9 @@ dashboard_html = f"""
         Muscle Rankings
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 24px;">
-        {cards_html}
-    </div>
+    <div style="display: flex; overflow-x: auto; gap: 12px; margin-bottom: 24px; scrollbar-width: thin; -webkit-overflow-scrolling: touch;">
+    {cards_html}
+</div>
 
 </div>
 """
@@ -464,7 +464,7 @@ st.components.v1.html(dashboard_html, height=550, scrolling=False)
 st.divider()
 
 tab1, tab2, tab3 = st.tabs(
-    ["🥗 Log Food", "⚔️ Log Workout Set", "🎯 Adjust Goals"]
+    ["🥗 Macros", "⚔️ Workouts", "🎯  Goals"]
 )
 
 with tab1:
