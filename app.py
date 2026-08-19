@@ -9,31 +9,48 @@ st.set_page_config(page_title="TEMPEST", page_icon="⚡", layout="wide")
 st.markdown(
     """
     <style>
-    .wheels-scroll-row {
+    .macro-row {
         display: flex;
         overflow-x: auto;
         gap: 1rem;
-        padding-bottom: 1rem;
+        padding: 0.5rem 0;
         width: 100%;
         scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
     }
-    .wheels-scroll-row::-webkit-scrollbar {
-        height: 6px;
-    }
-    .wheels-scroll-row::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 4px;
-    }
-    .wheel-card {
-        flex: 0 0 260px;
-        scroll-snap-align: start;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 258, 0.08);
-        border-radius: 12px;
+    .macro-card {
+        flex: 0 0 140px;
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
         padding: 1rem;
+        text-align: center;
+        scroll-snap-align: start;
     }
     </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    """
+    <div class="macro-row">
+        <div class="macro-card">
+            <h4>Calories</h4>
+            <p>2,000 / 2,500</p>
+        </div>
+        <div class="macro-card">
+            <h4>Protein</h4>
+            <p>150g / 180g</p>
+        </div>
+        <div class="macro-card">
+            <h4>Carbs</h4>
+            <p>200g / 250g</p>
+        </div>
+        <div class="macro-card">
+            <h4>Fat</h4>
+            <p>60g / 80g</p>
+        </div>
+    </div>
     """,
     unsafe_allow_html=True,
 )
