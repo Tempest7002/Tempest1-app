@@ -5,45 +5,27 @@ import streamlit as st
 # Page configuration
 st.set_page_config(page_title="TEMPEST", page_icon="⚡", layout="wide")
 
+
 st.markdown(
     """
     <style>
-    /* Make columns wrap or scroll smoothly on mobile screens */
-    [data-testid="stHorizontalBlock"] {
-        flex-wrap: wrap;
+    /* Force horizontal scrolling on Streamlit metric or macro columns */
+    div[data-testid="stHorizontalBlock"] {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        gap: 1rem !important;
+        padding-bottom: 0.5rem !important;
     }
-    [data-testid="column"] {
-        min-width: 140px;
-        flex: 1;
+    div[data-testid="stHorizontalBlock"] > div {
+        flex: 0 0 auto !important;
+        min-width: 130px !important;
     }
     </style>
     """,
     unsafe_allow_html=True,
 )
-
-# Create a container for your macro wheels
-macro_container = st.container()
-
-# Add the custom class to it via markdown or container styling,
-# or wrap it using a container block:
-with macro_container:
-  st.markdown(
-      '<div class="macro-scroll-container">', unsafe_allow_html=True
-  )
-
-  # Your macro columns go right here
-  col1, col2, col3 = st.columns(3)
-  with col1:
-    # Calorie wheel code
-    pass
-  with col2:
-    # Protein wheel code
-    pass
-  with col3:
-    # Fat wheel code
-    pass
-
-  st.markdown("</div>", unsafe_allow_html=True)
 
 # 1. DATABASE SETUP
 def init_db():
