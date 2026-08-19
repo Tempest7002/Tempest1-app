@@ -21,6 +21,26 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+st.markdown(
+    """
+    <style>
+    .horizontal-scroll-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        width: 100%;
+        scroll-snap-type: x mandatory;
+    }
+    .horizontal-scroll-container > div {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 # 1. DATABASE SETUP
 def init_db():
   conn = sqlite3.connect("fitness.db")
