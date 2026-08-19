@@ -23,34 +23,6 @@ st.markdown(
 
 # 1. DATABASE SETUP
 def init_db():
-    conn = sqlite3.connect("fitness.db")
-    c = conn.cursor()
-
-    c.execute("""CREATE TABLE IF NOT EXISTS food_logs 
-                 (id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, food TEXT, protein REAL, carbs REAL, fat REAL, calories REAL)""")
-
-    c.execute("""CREATE TABLE IF NOT EXISTS workout_logs 
-                 (id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, muscle_group TEXT, exercise TEXT, sets INT, reps INT, weight REAL)""")
-
-    c.execute("""CREATE TABLE IF NOT EXISTS macro_targets 
-                 (id INTEGER PRIMARY KEY, cal_goal INT, p_goal INT, c_goal INT, f_goal INT)""")
-
-    c.execute("SELECT COUNT(*) FROM macro_targets")
-    if c.fetchone()[0] == 0:
-        c.execute(
-            "INSERT INTO macro_targets (id, cal_goal, p_goal, c_goal, f_goal) VALUES (1, 2500, 180, 250, 80)"
-        )
-
-    try:
-        c.execute("ALTER TABLE workout_logs ADD COLUMN muscle_group TEXT")
-    except sqlite3.OperationalError:
-        pass
-
-    conn.commit()
-    conn.close()
-
-
-def init_db():
   conn = sqlite3.connect("fitness.db")
   c = conn.cursor()
 
