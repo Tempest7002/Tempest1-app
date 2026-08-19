@@ -9,30 +9,20 @@ st.set_page_config(page_title="TEMPEST", page_icon="⚡", layout="wide")
 st.markdown(
     """
     <style>
-    .macro-row {
-        display: flex;
-        overflow-x: auto;
-        gap: 1rem;
-        padding: 0.5rem 0 1rem 0;
-        width: 100%;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch; /* Enables smooth momentum scrolling on iOS Safari */
+    /* Enable horizontal swipe-scrolling for Streamlit columns on mobile */
+    [data-testid="stHorizontalBlock"] {
+        display: flex !important;
+        overflow-x: auto !important;
+        flex-wrap: nowrap !important;
+        gap: 1rem !important;
+        padding-bottom: 0.5rem !important;
+        -webkit-overflow-scrolling: touch !important;
+        scroll-snap-type: x mandatory !important;
     }
-    .macro-row::-webkit-scrollbar {
-        height: 6px; /* Makes the scrollbar visible and touchable on mobile */
-    }
-    .macro-row::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 4px;
-    }
-    .macro-card {
-        flex: 0 0 140px;
-        background-color: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
-        padding: 1rem;
-        text-align: center;
-        scroll-snap-align: start;
+    [data-testid="stHorizontalBlock"] > div {
+        flex: 0 0 160px !important;
+        scroll-snap-align: start !important;
+        min-width: 160px !important;
     }
     </style>
     """,
